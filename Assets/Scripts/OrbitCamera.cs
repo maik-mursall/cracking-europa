@@ -25,7 +25,7 @@ public class OrbitCamera : MonoBehaviour
     private void Update()
     {
         _rotation.x += Input.GetAxis("Mouse Y");
-        _rotation.y += Input.GetAxis("Mouse X");
+        _rotation.y -= Input.GetAxis("Mouse X");
 
         Quaternion lookRotation = Quaternion.Euler(_rotation);
         Vector3 lookDirection = lookRotation * Vector3.forward;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Gameplay;
 
 public class Ore : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class Ore : MonoBehaviour
     {
         float amountToHarvest = Math.Min(mAmount, _currentAmount);
         _currentAmount -= amountToHarvest;
+        
+        ResourceManager.instance.addResource("Ice", amountToHarvest);
 
         return amountToHarvest;
     }

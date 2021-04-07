@@ -1,3 +1,4 @@
+using System;
 using Gameplay;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -7,26 +8,40 @@ public class SphereSurfaceRessourceSpawner : MonoBehaviour
     [SerializeField]
     private float sphereRadius = 50f;
 
-    [SerializeField] private Ressource ressource;
+    [SerializeField] private Resource resource;
 
+    [SerializeField] private bool spawnContinuously = false;
     [SerializeField] private float spawnDelay = 5f;
     private float _timeSinceLastSpawn;
 
-    private void SpawnRessource()
-    {
-        Vector3 position = Random.onUnitSphere * sphereRadius + transform.position;
+    [SerializeField] private int amountToSpawnOnStart = 10;
 
-        Instantiate(ressource.prefab, position, Quaternion.identity, transform).transform.up = (position - transform.position).normalized;
+    private void Start()
+    {
+        for (int i = 0; i < amountToSpawnOnStart; i++)
+        {
+            SpawnRessource();
+        }
     }
 
     private void Update()
     {
-        _timeSinceLastSpawn += Time.deltaTime;
-
-        if (_timeSinceLastSpawn >= spawnDelay)
+        if (spawnContinuously)
         {
-            SpawnRessource();
-            _timeSinceLastSpawn = 0f;
+            _timeSinceLastSpawn += Time.deltaTime;
+
+            if (_timeSinceLastSpawn >= spawnDelay)
+            {
+                SpawnRessource();
+                _timeSinceLastSpawn = 0f;
+            }
         }
+    }
+    
+    private void SpawnRessource()
+    {
+        Vector3 position = Random.onUnitSphere * sphereRadius + transform.position;
+
+        Instantiate(resource.prefab, position, Quaternion.identity, transform).transform.up = (position - transform.position).normalized;
     }
 }

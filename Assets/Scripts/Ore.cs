@@ -5,11 +5,24 @@ using System;
 
 public class Ore : MonoBehaviour
 {
+    [SerializeField] private float amount;
+    private float _currentAmount = 0f;
+
     public List<GameObject> OreGraficObjects = new List<GameObject>();
     void Start()
     {
         Enum.TryParse("" + UnityEngine.Random.Range(-1, 2), out Type value);
         SetOreType(value);
+
+        _currentAmount = amount;
+    }
+
+    public float HarvestOre(float mAmount)
+    {
+        float amountToHarvest = Math.Min(mAmount, _currentAmount);
+        _currentAmount -= amountToHarvest;
+
+        return amountToHarvest;
     }
 
     public enum Type

@@ -7,6 +7,8 @@ public class LaserShooter : MonoBehaviour
 
     private Camera _mainCamera;
 
+    [SerializeField] private float harvestingSpeed = 100f;
+
     private void Start()
     {
         _mainCamera = Camera.main;
@@ -16,18 +18,24 @@ public class LaserShooter : MonoBehaviour
     {
         if (lineRenderer)
         {
-            bool mouseDown = Input.GetMouseButton(0);
-            lineRenderer.enabled = mouseDown;
+            lineRenderer.enabled = Input.GetMouseButton(0);
             
-            if (mouseDown)
+            if (lineRenderer.enabled)
             {
-                Ray ray = _mainCamera.ScreenPointToRay (Input.mousePosition);
-                
                 lineRenderer.SetPosition(0, transform.position);
+                
+                Ray ray = _mainCamera.ScreenPointToRay (Input.mousePosition);
 
                 if (Physics.Raycast (ray, out RaycastHit hit, Mathf.Infinity)) 
                 {
                     lineRenderer.SetPosition(1, hit.point);
+
+                    if (hit.transform.TryGetComponent(out Ore ore))
+                    {
+                        float amountHarvested = ore.HarvestOre(harvestingSpeed * Time.deltaTime);
+                        
+                        Debug.Log($"Just harvested ${amountHarvested}");
+                    }
                 }
                 else
                 {

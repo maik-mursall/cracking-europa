@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38163a06f20e84ed19e296b981cff12d, type: 3}
   m_Name: IceRessource
   m_EditorClassIdentifier: 
-  ressourceName: Ice
+  resourceName: Ice
   amount: 1000
   prefab: {fileID: 5649610445452175031, guid: d9f411b44cd984821b1c9c70b079def0, type: 3}

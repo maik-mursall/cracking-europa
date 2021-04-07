@@ -1,11 +1,8 @@
 fileFormatVersion: 2
-guid: de304409d9d33f84cb0513528b3bba62
+guid: abcba1498cc02254bb9210db1b9ae6f8
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: 3218068519873989136
-    second: Camera_Side_Dive|Camera_Side_DiveAction
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2

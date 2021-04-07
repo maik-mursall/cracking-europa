@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 6791942203268395345}
   distance: 20
+  followRotation: 1
 --- !u!20 &1687258584
 Camera:
   m_ObjectHideFlags: 0
@@ -483,13 +484,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138677391}
-  m_LocalRotation: {x: 0.7064338, y: 0.47771442, z: 0.030843567, w: 0.5213338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.78, y: 3, z: 5.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 130, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2254661029564952785
 Transform:
   m_ObjectHideFlags: 0
@@ -497,14 +498,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8419453164944244580}
-  m_LocalRotation: {x: 0.6501451, y: 0.27804914, z: 0.27804914, w: -0.6501451}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6791942203268395345}
   m_Father: {fileID: 4619363511632913878}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 1753.69}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!108 &3624947161256232619
 Light:
   m_ObjectHideFlags: 0
@@ -845,6 +846,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2254661029564952785}
+  - component: {fileID: 8419453164944244581}
   m_Layer: 0
   m_Name: EuropaOrbit
   m_TagString: Untagged
@@ -852,6 +854,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8419453164944244581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8419453164944244580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78d7121840f0de4282cd134897ea061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationVelocity: {x: 0, y: 0, z: 1}
 --- !u!23 &8452962895574799236
 MeshRenderer:
   m_ObjectHideFlags: 0

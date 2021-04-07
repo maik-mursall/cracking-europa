@@ -1,15 +1,15 @@
-using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Cursor = UnityEngine.Cursor;
 
 public class OrbitCamera : MonoBehaviour
 {
     [SerializeField] private Transform target;
     private Camera _camera;
-    private Vector2 _rotation;
+    private Vector3 _rotation = Vector3.zero;
 
     [SerializeField] private float distance = 100f;
+
+    [SerializeField] private bool followRotation = false;
 
     private void Start()
     {
@@ -27,7 +27,8 @@ public class OrbitCamera : MonoBehaviour
         _rotation.x += Input.GetAxis("Mouse Y");
         _rotation.y -= Input.GetAxis("Mouse X");
 
-        Quaternion lookRotation = Quaternion.Euler(_rotation);
+        Quaternion lookRotation = Quaternion.Euler(_rotation + (followRotation ? target.rotation.eulerAngles : Vector3.zero));
+
         Vector3 lookDirection = lookRotation * Vector3.forward;
         Vector3 lookPosition = target.position - (lookDirection * distance);
         

@@ -13,6 +13,9 @@ namespace Settings
         [SerializeField] Text endgameText;
         public Button backToMenuText;
 
+        [SerializeField] private float midThreshold = 10000f;
+        [SerializeField] private float goodThreshold = 1000000f;
+
         public enum GameAbschluss
         {
             Gut,
@@ -21,7 +24,7 @@ namespace Settings
         }
         public void DisplayEndgameText(string commanderName, float crypto, int anzahlMonate)
         {
-            GameAbschluss gameAbschluss = crypto >= 10000f ? (crypto >= 1000000 ? GameAbschluss.Gut : GameAbschluss.Mittel) : GameAbschluss.Schlecht;
+            GameAbschluss gameAbschluss = crypto >= midThreshold ? (crypto >= goodThreshold ? GameAbschluss.Gut : GameAbschluss.Mittel) : GameAbschluss.Schlecht;
             
             string text =
                 $"Commander {commanderName} verdiente {crypto} Crypto"

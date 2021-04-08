@@ -9,6 +9,8 @@ namespace Gameplay
 
         private float _credits;
 
+        public bool gameIsRunning = true;
+
         public float Credits
         {
             get => _credits;
@@ -36,6 +38,12 @@ namespace Gameplay
         public void AddCredits(float amount)
         {
             Credits += amount;
+        }
+
+        public void TimeRanOut()
+        {
+            Debug.Log("Time ran out! :(");
+            gameIsRunning = false;
         }
     }
 }

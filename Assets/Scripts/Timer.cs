@@ -1,4 +1,5 @@
 using System;
+using Gameplay;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +14,17 @@ public class Timer : MonoBehaviour
     
     void Update()
     {
-        _currentElapsedTime += Time.deltaTime;
-        
-        timeText.text = TimeSpan.FromSeconds(time - _currentElapsedTime).ToString("mm':'ss");
-        timeSlider.value = Mathf.Clamp01((time - _currentElapsedTime) / time);
+        if (GameManager.instance.gameIsRunning)
+        {
+            _currentElapsedTime += Time.deltaTime;
+            
+            timeText.text = TimeSpan.FromSeconds(time - _currentElapsedTime).ToString("mm':'ss");
+            timeSlider.value = Mathf.Clamp01((time - _currentElapsedTime) / time);
+
+            if (_currentElapsedTime >= time)
+            {
+                GameManager.instance.TimeRanOut();
+            }
+        }
     }
 }

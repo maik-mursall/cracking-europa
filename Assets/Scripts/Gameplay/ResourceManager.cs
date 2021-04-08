@@ -8,7 +8,10 @@ namespace Gameplay
     {
         public static ResourceManager instance;
 
-        private readonly SortedDictionary<String, float> _resources = new SortedDictionary<string, float>();
+        private readonly Dictionary<String, ResourceUI> _resources = new Dictionary<string, ResourceUI>();
+
+        [SerializeField] private GameObject resourceUI;
+        [SerializeField] private Transform resourceUIParent;
 
         private void Start()
         {
@@ -19,19 +22,22 @@ namespace Gameplay
 
             instance = this;
         }
-
-        public void addResource(string resourceName, float amount)
+        
+        public void AddResource(string resourceName, float amount)
         {
-            if (_resources.TryGetValue(resourceName, out float mAmount))
+            if (_resources.TryGetValue(resourceName, out ResourceUI mResourceUI))
             {
-                _resources[resourceName] = mAmount + amount;
+                _resources[resourceName].Amount = mResourceUI.Amount + amount;
             }
             else
             {
-                _resources.Add(resourceName, amount);
+                var createdResourceUI = Instantiate(resourceUI, resourceUIParent).GetComponent<ResourceUI>();
+
+                createdResourceUI.SetResourceName(resourceName);
+                createdResourceUI.Amount = amount;
+                
+                _resources.Add(resourceName, createdResourceUI);
             }
-            
-            Debug.Log($"Haha yes {_resources}");
         }
     }
 }

@@ -23,7 +23,7 @@ public class Ore : MonoBehaviour
         float amountToHarvest = Math.Min(mAmount, _currentAmount);
         _currentAmount -= amountToHarvest;
         
-        ResourceManager.instance.addResource("Ice", amountToHarvest);
+        ResourceManager.instance.AddResource("Ice", amountToHarvest);
 
         return amountToHarvest;
     }

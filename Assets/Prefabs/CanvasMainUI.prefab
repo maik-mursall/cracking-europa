@@ -117,7 +117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1637317997
 RectTransform:
   m_ObjectHideFlags: 0
@@ -961,6 +961,7 @@ MonoBehaviour:
   timeCounter: {fileID: 8495513961385669451}
   timeSlider: {fileID: 2050470126345002299}
   EndgameObject: {fileID: 1637317996}
+  EndgameText: {fileID: 399164046}
   BackToMenuText: {fileID: 1046036054637333531}
 --- !u!1 &8495513960339101956
 GameObject:
@@ -1488,6 +1489,30 @@ PrefabInstance:
     - target: {fileID: 1458923360541939955, guid: 20a36a3321aae374b900b2df8c9b14d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458923360541939956, guid: 20a36a3321aae374b900b2df8c9b14d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458923360541939956, guid: 20a36a3321aae374b900b2df8c9b14d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458923360541939956, guid: 20a36a3321aae374b900b2df8c9b14d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458923360541939956, guid: 20a36a3321aae374b900b2df8c9b14d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458923360541939956, guid: 20a36a3321aae374b900b2df8c9b14d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AppManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458923360541939956, guid: 20a36a3321aae374b900b2df8c9b14d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1458923360541939957, guid: 20a36a3321aae374b900b2df8c9b14d6, type: 3}
       propertyPath: m_Color.a

@@ -15,6 +15,7 @@ public class MainUIManager : MonoBehaviour
 
     [Header("Endgame Stuff")]
     public GameObject EndgameObject;
+    [SerializeField] Text EndgameText;
     public Button BackToMenuText;
 
     /// <summary>
@@ -46,6 +47,32 @@ public class MainUIManager : MonoBehaviour
             cryptoText.text = "" + value.ToString("D8");
         } 
     }
+
+    public enum GameAbschluss
+    {
+        gut,
+        mittel,
+        schlecht
+    }
+    public void SetEndgameText(string commanderName, int crypto, int anzahlMonate, GameAbschluss gameAbschluss)
+    {
+        string text =
+        "Commander " + commanderName + " verdiente "+crypto+" Crypto \n\n" +
+        " Er wirkte " + anzahlMonate + " Europa- Monate auf der Racine-II und crackte aus Europa wertvolle Metalle im Wert von "+crypto+" Crypto. " + "\n\n";
+        switch (gameAbschluss)
+        {
+            case GameAbschluss.gut:
+                text += "FLORAISON und die Investoren danken für seine herausragende Gewinnerhöhung.";
+                break;
+            case GameAbschluss.mittel:
+                text += "mittel Leistung";
+                break;
+            case GameAbschluss.schlecht:
+                text += "FLORAISON und die Investoren danken für seine Stetige Bemühung im Rahmen seiner begrenzten Möglichkeiten.";
+                break;
+        }
+    }
+
 
     /*
     private void Start()

@@ -1093,7 +1093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cryptoText: {fileID: 0}
   timeCounter: {fileID: 8495513961385669451}
-  timeSlider: {fileID: 2050470126345002299}
+  timeSlider: {fileID: 0}
   EndgameObject: {fileID: 1637317996}
   EndgameText: {fileID: 399164046}
   BackToMenuText: {fileID: 1046036054637333531}

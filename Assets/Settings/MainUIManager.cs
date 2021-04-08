@@ -62,13 +62,13 @@ public class MainUIManager : MonoBehaviour
         switch (gameAbschluss)
         {
             case GameAbschluss.gut:
-                text += "FLORAISON und die Investoren danken für seine herausragende Gewinnerhöhung.";
+                text += "FLORAISON und die Investoren danken fÃ¼r seine herausragende GewinnerhÃ¶hung.";
                 break;
             case GameAbschluss.mittel:
                 text += "mittel Leistung";
                 break;
             case GameAbschluss.schlecht:
-                text += "FLORAISON und die Investoren danken für seine Stetige Bemühung im Rahmen seiner begrenzten Möglichkeiten.";
+                text += "FLORAISON und die Investoren danken fÃ¼r seine Stetige BemÃ¼hung im Rahmen seiner begrenzten MÃ¶glichkeiten.";
                 break;
         }
     }

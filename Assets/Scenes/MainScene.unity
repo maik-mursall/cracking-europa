@@ -449,7 +449,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphereRadius: 7.5
-  resource: {fileID: 11400000, guid: 54578ee5c23c34f14a796c86ce9a728c, type: 2}
+  resource:
+  - {fileID: 11400000, guid: 54578ee5c23c34f14a796c86ce9a728c, type: 2}
+  - {fileID: 11400000, guid: 7bed23688208cf948b37d67cc10ebde4, type: 2}
   spawnContinuously: 0
   spawnDelay: 0.5
   amountToSpawnOnStart: 10

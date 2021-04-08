@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079795130bae11d4384f2e844dec95f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oreName: Ice
   amount: 10000
   OreGraficObjects:
   - {fileID: 7490796616738908829}

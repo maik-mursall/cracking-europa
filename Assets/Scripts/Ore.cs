@@ -8,6 +8,7 @@ public class Ore : MonoBehaviour
 {
     [SerializeField] private string oreName;
     [SerializeField] private float amount;
+    [SerializeField] private float value;
     private float _currentAmount = 0f;
 
     public List<GameObject> OreGraficObjects = new List<GameObject>();
@@ -24,7 +25,9 @@ public class Ore : MonoBehaviour
         float amountToHarvest = Math.Min(mAmount, _currentAmount);
         _currentAmount -= amountToHarvest;
         
-        ResourceManager.instance.AddResource(oreName, amountToHarvest);
+        // ResourceManager.instance.AddResource(oreName, amountToHarvest);
+        
+        GameManager.instance.AddCredits(amountToHarvest * value);
 
         return amountToHarvest;
     }

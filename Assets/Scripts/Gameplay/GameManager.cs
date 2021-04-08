@@ -1,26 +1,41 @@
+using TMPro;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace Gameplay
 {
-    public static GameManager instance;
-
-    public float credits;
-    
-    
-    
-    // Start is called before the first frame update
-    void Start()
+    public class GameManager : MonoBehaviour
     {
-        if (instance != null)
+        public static GameManager instance;
+
+        private float _credits;
+
+        public float Credits
         {
-            DestroyImmediate(gameObject);
+            get => _credits;
+            set
+            {
+                _credits = value;
+                creditsText.text = value.ToString("0000000.00");;
+            }
         }
 
-        instance = this;
-    }
+        [SerializeField] private TMP_Text creditsText;
 
-    public void AddCredits(float amount)
-    {
-        credits += amount;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            if (instance != null)
+            {
+                DestroyImmediate(gameObject);
+            }
+
+            instance = this;
+        }
+
+        public void AddCredits(float amount)
+        {
+            Credits += amount;
+        }
     }
 }

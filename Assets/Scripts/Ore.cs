@@ -6,6 +6,7 @@ using Gameplay;
 
 public class Ore : MonoBehaviour
 {
+    [SerializeField] private string oreName;
     [SerializeField] private float amount;
     private float _currentAmount = 0f;
 
@@ -23,7 +24,7 @@ public class Ore : MonoBehaviour
         float amountToHarvest = Math.Min(mAmount, _currentAmount);
         _currentAmount -= amountToHarvest;
         
-        ResourceManager.instance.addResource("Ice", amountToHarvest);
+        ResourceManager.instance.AddResource(oreName, amountToHarvest);
 
         return amountToHarvest;
     }

@@ -8,7 +8,7 @@ public class SphereSurfaceRessourceSpawner : MonoBehaviour
     [SerializeField]
     private float sphereRadius = 50f;
 
-    [SerializeField] private Resource resource;
+    [SerializeField] private Resource[] resource;
 
     [SerializeField] private bool spawnContinuously = false;
     [SerializeField] private float spawnDelay = 5f;
@@ -40,8 +40,9 @@ public class SphereSurfaceRessourceSpawner : MonoBehaviour
     
     private void SpawnRessource()
     {
-        Vector3 position = Random.onUnitSphere * sphereRadius + transform.position;
+        Vector3 ownPosition = transform.position;
+        Vector3 position = Random.onUnitSphere * sphereRadius + ownPosition;
 
-        Instantiate(resource.prefab, position, Quaternion.identity, transform).transform.up = (position - transform.position).normalized;
+        Instantiate(resource[Random.Range(0, resource.Length)].prefab, position, Quaternion.identity, transform).transform.up = (position - ownPosition).normalized;
     }
 }

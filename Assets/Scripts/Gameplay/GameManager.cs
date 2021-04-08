@@ -1,3 +1,4 @@
+using Settings;
 using TMPro;
 using UnityEngine;
 
@@ -22,6 +23,7 @@ namespace Gameplay
         }
 
         [SerializeField] private TMP_Text creditsText;
+        [SerializeField] private MainUIManager mainUIManager;
 
 
         // Start is called before the first frame update
@@ -42,7 +44,7 @@ namespace Gameplay
 
         public void TimeRanOut()
         {
-            Debug.Log("Time ran out! :(");
+            mainUIManager.DisplayEndgameText("Cooler Kommander", Credits, 10, MainUIManager.GameAbschluss.Mittel);
             gameIsRunning = false;
         }
     }

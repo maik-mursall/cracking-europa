@@ -7,6 +7,13 @@ public class HighscoreEntry
     public string commanderName;
     public float score;
     public float date;
+
+    public HighscoreEntry(string mCommanderName, float mScore, float mDate)
+    {
+        commanderName = mCommanderName;
+        score = mScore;
+        date = mDate;
+    }
 }
 
 public class HighscoreHelper

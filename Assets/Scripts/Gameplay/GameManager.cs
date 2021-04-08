@@ -1,3 +1,4 @@
+using System.Linq;
 using Settings;
 using TMPro;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace Gameplay
         public static GameManager instance;
 
         private float _credits;
+        private string _commanderName = "Cooler Kommander";
 
         public bool gameIsRunning = true;
 
@@ -18,12 +20,14 @@ namespace Gameplay
             set
             {
                 _credits = value;
-                creditsText.text = value.ToString("0000000.00");;
+                creditsText.text = value.ToString("0000000.00");
+                ;
             }
         }
 
         [SerializeField] private TMP_Text creditsText;
         [SerializeField] private MainUIManager mainUIManager;
+        [SerializeField] private HighscoreUIManager highscoreUIManager;
 
 
         // Start is called before the first frame update
@@ -45,6 +49,19 @@ namespace Gameplay
         public void TimeRanOut()
         {
             mainUIManager.DisplayEndgameText("Cooler Kommander", Credits, 10);
+
+            var highScores = HighscoreHelper.GetHighScores().ToList();
+
+            highScores.Add(new HighscoreEntry(
+                _commanderName,
+                _credits,
+                Time.time
+            ));
+            
+            highScores.Sort((x, y) => x.score.CompareTo(y.score));
+
+            highscoreUIManager.DisplayHighscore(highScores.ToArray());
+
             gameIsRunning = false;
         }
     }

@@ -11,8 +11,7 @@ namespace Settings
         [Header("Endgame Stuff")]
         public GameObject endgameObject;
         [SerializeField] Text endgameText;
-        public Button backToMenuText;
-
+        
         [SerializeField] private float midThreshold = 10000f;
         [SerializeField] private float goodThreshold = 1000000f;
 

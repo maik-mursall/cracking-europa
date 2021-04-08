@@ -60,7 +60,10 @@ namespace Gameplay
             
             highScores.Sort((x, y) => x.score.CompareTo(y.score));
 
-            highscoreUIManager.DisplayHighscore(highScores.ToArray());
+            var highScoreArray = highScores.ToArray();
+            
+            HighscoreHelper.SaveHighScores(highScoreArray);
+            highscoreUIManager.DisplayHighscore(highScoreArray);
 
             gameIsRunning = false;
         }

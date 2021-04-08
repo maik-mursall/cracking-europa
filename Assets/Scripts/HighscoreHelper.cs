@@ -32,7 +32,7 @@ public class HighscoreHelper
                 entries[i] = JsonUtility.FromJson<HighscoreEntry>(PlayerPrefs.GetString(key));
             }
         }
-
+        
         return entries;
     }
 

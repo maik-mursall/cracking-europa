@@ -9,7 +9,7 @@ public class HighscoreUIManager : MonoBehaviour
     {
         for (int i = 0; i < entries.Length; i++)
         {
-            Instantiate(highscoreEntryPrefab, highscoreContainer).GetComponent<HighscoreEntryUI>().PopulateEntry(entries[i], i);
+            Instantiate(highscoreEntryPrefab, highscoreContainer).GetComponent<HighscoreEntryUI>().PopulateEntry(entries[i], i + 1);
         }
     }
 }

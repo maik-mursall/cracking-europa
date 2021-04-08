@@ -1628,6 +1628,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1046036053062589277, guid: 4d988d9484ee8d2438f5d77c8cb9879c, type: 3}
+      propertyPath: m_Text
+      value: Show Highscore
+      objectReference: {fileID: 0}
     - target: {fileID: 1046036054637333531, guid: 4d988d9484ee8d2438f5d77c8cb9879c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1679,6 +1683,10 @@ PrefabInstance:
     - target: {fileID: 1046036054637333531, guid: 4d988d9484ee8d2438f5d77c8cb9879c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1046036054637333535, guid: 4d988d9484ee8d2438f5d77c8cb9879c, type: 3}
+      propertyPath: m_Name
+      value: ShowHighscore
       objectReference: {fileID: 0}
     - target: {fileID: 2050470125974316541, guid: 4d988d9484ee8d2438f5d77c8cb9879c, type: 3}
       propertyPath: m_AnchorMax.x

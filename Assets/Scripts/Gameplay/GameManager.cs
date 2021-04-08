@@ -10,7 +10,6 @@ namespace Gameplay
         public static GameManager instance;
 
         private float _credits;
-        private string _commanderName = "Cooler Kommander";
 
         public bool gameIsRunning = true;
 
@@ -53,12 +52,12 @@ namespace Gameplay
             var highScores = HighscoreHelper.GetHighScores().ToList();
 
             highScores.Add(new HighscoreEntry(
-                _commanderName,
+                PlayerManager.instance.currentPlayerName,
                 _credits,
                 Time.time
             ));
             
-            highScores.Sort((x, y) => x.score.CompareTo(y.score));
+            highScores.Sort((x, y) => y.score.CompareTo(x.score));
 
             var highScoreArray = highScores.ToArray();
             

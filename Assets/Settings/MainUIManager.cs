@@ -19,8 +19,10 @@ namespace Settings
             Mittel,
             Schlecht
         }
-        public void DisplayEndgameText(string commanderName, float crypto, int anzahlMonate, GameAbschluss gameAbschluss)
+        public void DisplayEndgameText(string commanderName, float crypto, int anzahlMonate)
         {
+            GameAbschluss gameAbschluss = crypto >= 10000f ? (crypto >= 1000000 ? GameAbschluss.Gut : GameAbschluss.Mittel) : GameAbschluss.Schlecht;
+            
             string text =
                 $"Commander {commanderName} verdiente {crypto} Crypto"
                 + $"\n\n Er wirkte {anzahlMonate} Europa- Monate auf der Racine-II und crackte aus Europa wertvolle Metalle im Wert von {crypto:0.00} Crypto. \n\n";

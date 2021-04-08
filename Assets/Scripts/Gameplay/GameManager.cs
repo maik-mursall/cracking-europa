@@ -44,7 +44,7 @@ namespace Gameplay
 
         public void TimeRanOut()
         {
-            mainUIManager.DisplayEndgameText("Cooler Kommander", Credits, 10, MainUIManager.GameAbschluss.Mittel);
+            mainUIManager.DisplayEndgameText("Cooler Kommander", Credits, 10);
             gameIsRunning = false;
         }
     }

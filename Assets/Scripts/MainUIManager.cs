@@ -8,10 +8,11 @@ namespace Settings
     /// </summary>
     public class MainUIManager : MonoBehaviour
     {
+        public static MainUIManager instance;
         [Header("Endgame Stuff")]
         public GameObject endgameObject;
         [SerializeField] Text endgameText;
-        
+            
         [SerializeField] private float midThreshold = 10000f;
         [SerializeField] private float goodThreshold = 1000000f;
 

@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
             _currentElapsedTime += Time.deltaTime;
             
             timeText.text = TimeSpan.FromSeconds(time - _currentElapsedTime).ToString("mm':'ss");
-            timeSlider.value = Mathf.Clamp01((time - _currentElapsedTime) / time);
+            //timeSlider.value = Mathf.Clamp01((time - _currentElapsedTime) / time);
 
             if (_currentElapsedTime >= time)
             {

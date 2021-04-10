@@ -1,16 +1,24 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class LaserShooter : MonoBehaviour
 {
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private GameObject impactEffects;
+    [SerializeField] private Slider laserSlider;
 
     private Camera _mainCamera;
 
     [SerializeField] private float harvestingSpeed = 100f;
-    [SerializeField] private float RotationSpeedInverse = 0.5f;
+    [SerializeField] private float rotationSpeedInverse = 0.5f;
+    [SerializeField] private float laserEnergie = 100f;
+
+    //[Range(0.1f, 5f)]
+    [SerializeField] private float laserDrainPerSecond = 1f;
+    //[Range(0.1f, 5f)]
+    [SerializeField] private float laserEnergyRegenPerSecond = 1f;
 
     private void Start()
     {
@@ -26,7 +34,15 @@ public class LaserShooter : MonoBehaviour
     {
         if (lineRenderer)
         {
-            lineRenderer.enabled = Input.GetMouseButton(0);
+            bool laserActive = Input.GetMouseButton(0);
+            lineRenderer.enabled = laserActive && laserEnergie > 1f;
+            if(laserActive)
+                laserEnergie -= Time.deltaTime * laserDrainPerSecond;
+            else
+                laserEnergie += Time.deltaTime * laserEnergyRegenPerSecond;
+
+            laserEnergie = Mathf.Clamp(laserEnergie, 0, 100);
+            laserSlider.value = laserEnergie; // setting energie UI
             
             if (lineRenderer.enabled)
             {
@@ -41,7 +57,7 @@ public class LaserShooter : MonoBehaviour
                     impactEffects.transform.rotation = Quaternion.LookRotation(hit.normal);
                     impactEffects.SetActive(true);
 
-                    transform.parent.parent.DOLookAt(hit.point, RotationSpeedInverse);
+                    transform.parent.parent.DOLookAt(hit.point, rotationSpeedInverse);
                     
 
                     if (hit.transform.TryGetComponent(out Ore ore))
@@ -54,6 +70,7 @@ public class LaserShooter : MonoBehaviour
                 else
                 {
                     lineRenderer.SetPosition(1, ray.origin + ray.direction * 50f);
+                    impactEffects.SetActive(false);
                 }
             }
             else

@@ -6,6 +6,7 @@ public class RotateOverTime : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(rotationVelocity * Time.deltaTime);
+        if(Gameplay.GameManager.instance.orbitsAreMoving)
+            transform.Rotate(rotationVelocity * Time.deltaTime);
     }
 }

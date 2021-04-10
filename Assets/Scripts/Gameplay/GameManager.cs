@@ -12,6 +12,7 @@ namespace Gameplay
         private float _credits;
 
         public bool gameIsRunning = true;
+        public bool orbitsAreMoving = true;
 
         public float Credits
         {
@@ -27,7 +28,8 @@ namespace Gameplay
         [SerializeField] private TMP_Text creditsText;
         [SerializeField] private MainUIManager mainUIManager;
         [SerializeField] private HighscoreUIManager highscoreUIManager;
-
+        [SerializeField] private Timer timer;
+        [SerializeField] private Intro intro;
 
         // Start is called before the first frame update
         void Start()
@@ -38,6 +40,8 @@ namespace Gameplay
             }
 
             instance = this;
+
+            intro.StartIntro();
         }
 
         public void AddCredits(float amount)

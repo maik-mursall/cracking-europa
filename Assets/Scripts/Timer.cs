@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
 
     [SerializeField] private float time;
 
+
     private float _currentElapsedTime;
     
     void Update()

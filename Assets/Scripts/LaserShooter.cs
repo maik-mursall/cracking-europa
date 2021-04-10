@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using DG.Tweening;
 
 public class LaserShooter : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LaserShooter : MonoBehaviour
     private Camera _mainCamera;
 
     [SerializeField] private float harvestingSpeed = 100f;
+    [SerializeField] private float RotationSpeedInverse = 0.5f;
 
     private void Start()
     {
@@ -38,6 +40,9 @@ public class LaserShooter : MonoBehaviour
                     impactEffects.transform.position = hit.point;
                     impactEffects.transform.rotation = Quaternion.LookRotation(hit.normal);
                     impactEffects.SetActive(true);
+
+                    transform.parent.parent.DOLookAt(hit.point, RotationSpeedInverse);
+                    
 
                     if (hit.transform.TryGetComponent(out Ore ore))
                     {

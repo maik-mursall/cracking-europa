@@ -22,6 +22,11 @@ namespace Settings
             Mittel,
             Schlecht
         }
+
+        public void BackToMenu()
+        {
+            AppManager.instance.OpenMenu();
+        }
         public void DisplayEndgameText(string commanderName, float crypto, int anzahlMonate)
         {
             GameAbschluss gameAbschluss = crypto >= midThreshold ? (crypto >= goodThreshold ? GameAbschluss.Gut : GameAbschluss.Mittel) : GameAbschluss.Schlecht;

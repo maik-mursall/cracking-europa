@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] GameObject nameDialogue;
+    [SerializeField] GameObject mainButtons;
+    [SerializeField] GameObject highscore;
+    HighscoreUIManager highscoreManager;
+
+
     [SerializeField] Text nameField;
     public void PlayClicked()
     {
@@ -32,7 +37,15 @@ public class MainMenuManager : MonoBehaviour
 
     public void HighScoreClicked()
     {
-
+        highscore.SetActive(true);
+        mainButtons.SetActive(false);
+        highscoreManager = highscore.GetComponent<HighscoreUIManager>();
+        highscoreManager.DisplayHighscore(HighscoreHelper.GetHighScores());
+    }
+    public void BackToMenu()
+    {
+        highscore.SetActive(false);
+        mainButtons.SetActive(true);
     }
     public void QuitClicked()
     {

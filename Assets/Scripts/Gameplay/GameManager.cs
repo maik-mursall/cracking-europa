@@ -51,7 +51,7 @@ namespace Gameplay
 
         public void TimeRanOut()
         {
-            mainUIManager.DisplayEndgameText("Cooler Kommander", Credits, 10);
+            mainUIManager.DisplayEndgameText(PlayerManager.instance.currentPlayerName, Credits, 10);
 
             var highScores = HighscoreHelper.GetHighScores().ToList();
 

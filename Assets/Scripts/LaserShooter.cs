@@ -32,51 +32,64 @@ public class LaserShooter : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (lineRenderer)
+        if (lineRenderer && Gameplay.GameManager.instance.gameIsRunning)
         {
-            bool laserActive = Input.GetMouseButton(0);
-            lineRenderer.enabled = laserActive && laserEnergie > 1f;
-            if(laserActive)
+            bool mousePressed = Input.GetMouseButton(0);
+            lineRenderer.enabled = mousePressed && laserEnergie > 1f;
+            if(mousePressed)
                 laserEnergie -= Time.deltaTime * laserDrainPerSecond;
             else
                 laserEnergie += Time.deltaTime * laserEnergyRegenPerSecond;
 
             laserEnergie = Mathf.Clamp(laserEnergie, 0, 100);
             laserSlider.value = laserEnergie; // setting energie UI
-            
-            if (lineRenderer.enabled)
-            {
-                lineRenderer.SetPosition(0, transform.position);
-                
-                Ray ray = _mainCamera.ScreenPointToRay (Input.mousePosition);
 
-                if (Physics.Raycast (ray, out RaycastHit hit, Mathf.Infinity)) 
+            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
+            {
+
+                transform.parent.parent.DOLookAt(hit.point, rotationSpeedInverse);
+
+                if (mousePressed)
                 {
+                    lineRenderer.SetPosition(0, transform.position);
+
                     lineRenderer.SetPosition(1, hit.point);
                     impactEffects.transform.position = hit.point;
                     impactEffects.transform.rotation = Quaternion.LookRotation(hit.normal);
                     impactEffects.SetActive(true);
 
-                    transform.parent.parent.DOLookAt(hit.point, rotationSpeedInverse);
-                    
-
                     if (hit.transform.TryGetComponent(out Ore ore))
                     {
                         float amountHarvested = ore.HarvestOre(harvestingSpeed * Time.deltaTime);
-                        
+
                         Debug.Log($"Just harvested ${amountHarvested}");
                     }
                 }
                 else
                 {
-                    lineRenderer.SetPosition(1, ray.origin + ray.direction * 50f);
                     impactEffects.SetActive(false);
                 }
             }
             else
             {
+                //lineRenderer.SetPosition(1, ray.origin + ray.direction * 50f);
                 impactEffects.SetActive(false);
             }
+
+            /*if(ray hit)
+             *  look at
+             *  if(Mousepressed)
+             *      activate laser
+             *  else
+             *      deactivate laser
+             *      
+            */
+        }
+        else
+        {
+            impactEffects.SetActive(false);
+            lineRenderer.enabled = false;
         }
     }
 }

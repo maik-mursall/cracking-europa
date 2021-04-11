@@ -29,21 +29,23 @@ namespace Settings
         }
         public void DisplayEndgameText(string commanderName, float crypto, int anzahlMonate)
         {
+            goodThreshold = HighscoreHelper.GetHighScores()[0].score;
             GameAbschluss gameAbschluss = crypto >= midThreshold ? (crypto >= goodThreshold ? GameAbschluss.Gut : GameAbschluss.Mittel) : GameAbschluss.Schlecht;
             
             string text =
-                $"Commander {commanderName} verdiente {crypto} Crypto"
-                + $"\n\n Er wirkte {anzahlMonate} Europa- Monate auf der Racine-II und crackte aus Europa wertvolle Metalle im Wert von {crypto:0.00} Crypto. \n\n";
+                $"Commander {commanderName} \noperated 1 months onboard RACINE-II, \nsmelting and selling metallic salts out of Europa."
+                + $"\n\n {commanderName} earned {crypto:0.00} Crypto. \n\n"
+                + "Mother station FLORAISON and the investors ";
             switch (gameAbschluss)
             {
                 case GameAbschluss.Gut:
-                    text += "FLORAISON und die Investoren danken für seine herausragende Gewinnerhöhung.";
+                    text += "congratulate on this outstanding achievement in service of humanity";
                     break;
                 case GameAbschluss.Mittel:
-                    text += "mittel Leistung";
+                    text += "re thankful for your reliable effort in service of humanity.";
                     break;
                 case GameAbschluss.Schlecht:
-                    text += "FLORAISON und die Investoren danken für seine Stetige Bemühung im Rahmen seiner begrenzten Möglichkeiten.";
+                    text += "value this effort considering the obvious limits of capabilities. Some investors are laying low to avoid their liabilities.";
                     break;
             }
 

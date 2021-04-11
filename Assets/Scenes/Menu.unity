@@ -1696,11 +1696,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2045012401915929329, guid: 3920876510c352241902ec4b107f3da7, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.026499337
+      value: 0.024115065
       objectReference: {fileID: 0}
     - target: {fileID: 2045012401915929329, guid: 3920876510c352241902ec4b107f3da7, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.03528885
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2045012401915929329, guid: 3920876510c352241902ec4b107f3da7, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1769,6 +1769,22 @@ PrefabInstance:
     - target: {fileID: 6994884375293321570, guid: 3920876510c352241902ec4b107f3da7, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.7565043
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994884375293321572, guid: 3920876510c352241902ec4b107f3da7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994884375293321572, guid: 3920876510c352241902ec4b107f3da7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.36099997
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994884375293321572, guid: 3920876510c352241902ec4b107f3da7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.36099997
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994884375293321572, guid: 3920876510c352241902ec4b107f3da7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.36099997
       objectReference: {fileID: 0}
     - target: {fileID: 6994884375293321573, guid: 3920876510c352241902ec4b107f3da7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2212,7 +2228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68356c3764ad390429ddad9e48ce8c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: {x: 20, y: 20, z: 20, w: 20}
+  radius: {x: 20, y: 20, z: 0, w: 0}
 --- !u!114 &2052595185
 MonoBehaviour:
   m_ObjectHideFlags: 0

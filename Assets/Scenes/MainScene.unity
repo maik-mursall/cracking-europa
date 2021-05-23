@@ -443,7 +443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5462312923895915450, guid: b03287a04d4a30840b50d23b3f94e1f0, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5462312923895915450, guid: b03287a04d4a30840b50d23b3f94e1f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1793,6 +1793,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1137605683, guid: b03287a04d4a30840b50d23b3f94e1f0, type: 3}
   m_PrefabInstance: {fileID: 361586169}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1739770221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1739770222}
+  m_Layer: 0
+  m_Name: BombEmiter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1739770222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739770221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.17, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1749572588}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1749572587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,6 +1839,7 @@ GameObject:
   - component: {fileID: 1749572593}
   - component: {fileID: 1749572594}
   - component: {fileID: 1749572595}
+  - component: {fileID: 1749572596}
   m_Layer: 0
   m_Name: Emitter
   m_TagString: Untagged
@@ -1829,6 +1860,7 @@ Transform:
   m_Children:
   - {fileID: 316581377}
   - {fileID: 337930292}
+  - {fileID: 1739770222}
   m_Father: {fileID: 3432799093014180744}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2208,6 +2240,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1749572596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749572587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87adfa69794de8149a33c3b215f7b3be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombSpawnPosition: {fileID: 0}
+  movementDirection: {x: 0, y: 0, z: 0}
+  BombPrefab: {fileID: 6880819143842958953, guid: dacb2cf641e9e2f4bba204af4fc97629, type: 3}
+  EuropaMoon: {fileID: 6791942203268395345}
+  BombSpawn: {fileID: 1739770222}
+  RacineOrbit: {fileID: 299849462}
 --- !u!1 &1793208782
 GameObject:
   m_ObjectHideFlags: 0
@@ -2419,7 +2469,7 @@ Transform:
   m_Children:
   - {fileID: 4619363511632913878}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2015177761
 GameObject:
@@ -3552,7 +3602,7 @@ GameObject:
   - component: {fileID: 6127714496124005356}
   m_Layer: 0
   m_Name: Europa
-  m_TagString: Untagged
+  m_TagString: Europa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

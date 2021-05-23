@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 
 public class SphereSurfaceRessourceSpawner : MonoBehaviour
 {
+    public static SphereSurfaceRessourceSpawner instance;
     [SerializeField]
     private float sphereRadius = 50f;
 
@@ -18,6 +19,11 @@ public class SphereSurfaceRessourceSpawner : MonoBehaviour
 
     private void Start()
     {
+        if (instance == null)
+            instance = this;
+        else
+            DestroyImmediate(this);
+
         for (int i = 0; i < amountToSpawnOnStart; i++)
         {
             SpawnRessource();
@@ -42,6 +48,14 @@ public class SphereSurfaceRessourceSpawner : MonoBehaviour
     {
         Vector3 ownPosition = transform.position;
         Vector3 position = Random.onUnitSphere * sphereRadius + ownPosition;
+
+        Instantiate(resource[Random.Range(0, resource.Length)].prefab, position, Quaternion.identity, transform).transform.up = (position - ownPosition).normalized;
+    }
+
+    public void SpawnRessourceAtPosition(Vector3 pos)
+    {
+        Vector3 ownPosition = transform.position;
+        Vector3 position = (pos - ownPosition).normalized * sphereRadius + ownPosition;
 
         Instantiate(resource[Random.Range(0, resource.Length)].prefab, position, Quaternion.identity, transform).transform.up = (position - ownPosition).normalized;
     }

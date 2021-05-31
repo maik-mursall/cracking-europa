@@ -18,13 +18,11 @@ public class AppManager : MonoBehaviour
         if(instance != null)
         {
             DestroyImmediate(gameObject, true);
-            DontDestroyOnLoad(EventSystem);
         }
         else
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            DontDestroyOnLoad(EventSystem);
         }
     }
     private void Start()

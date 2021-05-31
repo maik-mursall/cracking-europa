@@ -59,4 +59,13 @@ public class SphereSurfaceRessourceSpawner : MonoBehaviour
 
         Instantiate(resource[Random.Range(0, resource.Length)].prefab, position, Quaternion.identity, transform).transform.up = (position - ownPosition).normalized;
     }
+
+    public GameObject SpawnObejctAtPosition(Vector3 pos, GameObject spawnable, Quaternion rotation = new Quaternion())
+    {
+        Vector3 ownPosition = transform.position;
+        Vector3 position = (pos - ownPosition).normalized * sphereRadius + ownPosition;
+        GameObject go = Instantiate(spawnable, position, rotation, transform);
+        go.transform.up = (position - ownPosition).normalized;
+        return go;
+    }
 }

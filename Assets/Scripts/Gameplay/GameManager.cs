@@ -20,7 +20,7 @@ namespace Gameplay
             set
             {
                 _credits = value;
-                creditsText.text = value.ToString("0000000.00");
+                creditsText.text = value.ToString("000000.00");
                 ;
             }
         }

@@ -36,8 +36,6 @@ public class Bomb : MonoBehaviour
     {
         Debug.Log(other.gameObject);
 
-
-
         if (other.gameObject.CompareTag("Europa"))
         {
             SphereSurfaceRessourceSpawner.instance.SpawnRessourceAtPosition(transform.position);

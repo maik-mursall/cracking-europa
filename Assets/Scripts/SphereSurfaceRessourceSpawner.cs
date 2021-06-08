@@ -17,7 +17,7 @@ public class SphereSurfaceRessourceSpawner : MonoBehaviour
 
     [SerializeField] private int amountToSpawnOnStart = 10;
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
             instance = this;
@@ -65,7 +65,7 @@ public class SphereSurfaceRessourceSpawner : MonoBehaviour
         Vector3 ownPosition = transform.position;
         Vector3 position = (pos - ownPosition).normalized * sphereRadius + ownPosition;
         GameObject go = Instantiate(spawnable, position, rotation, transform);
-        go.transform.up = (position - ownPosition).normalized;
+        //go.transform.up = (position - ownPosition).normalized;
         return go;
     }
 }

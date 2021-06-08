@@ -2764,11 +2764,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7113299293376996966, guid: 12522636e34602148a9fb5e95d0a25ed, type: 3}
       propertyPath: segmentDistance
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7113299293376996966, guid: 12522636e34602148a9fb5e95d0a25ed, type: 3}
       propertyPath: crackAngleChange
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7113299293376996967, guid: 12522636e34602148a9fb5e95d0a25ed, type: 3}
       propertyPath: m_Name
@@ -3081,14 +3081,6 @@ PrefabInstance:
     - target: {fileID: 2720160097222556547, guid: 9eee57832dce1dc48bb6a86a41aa8795, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2720160097222556547, guid: 9eee57832dce1dc48bb6a86a41aa8795, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.10000003
-      objectReference: {fileID: 0}
-    - target: {fileID: 2720160097222556547, guid: 9eee57832dce1dc48bb6a86a41aa8795, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.10000003
       objectReference: {fileID: 0}
     - target: {fileID: 2720160097222556547, guid: 9eee57832dce1dc48bb6a86a41aa8795, type: 3}
       propertyPath: m_LocalPosition.x

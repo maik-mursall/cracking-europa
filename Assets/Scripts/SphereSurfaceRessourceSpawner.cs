@@ -47,9 +47,9 @@ public class SphereSurfaceRessourceSpawner : MonoBehaviour
     private void SpawnRessource()
     {
         Vector3 ownPosition = transform.position;
-        Vector3 position = Random.onUnitSphere * sphereRadius + ownPosition;
+        Vector3 randomPositionOnSphere = Random.onUnitSphere * sphereRadius + ownPosition;
 
-        Instantiate(resource[Random.Range(0, resource.Length)].prefab, position, Quaternion.identity, transform).transform.up = (position - ownPosition).normalized;
+        Instantiate(resource[Random.Range(0, resource.Length)].prefab, randomPositionOnSphere, Quaternion.identity, transform).transform.up = (randomPositionOnSphere - ownPosition).normalized;
     }
 
     public void SpawnRessourceAtPosition(Vector3 pos)

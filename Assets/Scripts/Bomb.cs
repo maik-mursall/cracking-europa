@@ -22,7 +22,7 @@ public class Bomb : MonoBehaviour
 
         rotationEulers = Random.onUnitSphere;
 
-        GameObject.Destroy(this, destroyDelay);
+        GameObject.Destroy(transform.parent.gameObject, destroyDelay);
     }
 
     private Vector3 rotationEulers;

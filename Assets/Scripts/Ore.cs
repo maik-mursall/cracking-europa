@@ -12,7 +12,7 @@ public class Ore : MonoBehaviour
     private float _currentAmount = 0f;
 
     public List<GameObject> OreGraficObjects = new List<GameObject>();
-    void Start()
+    protected virtual void Start()
     {
         Enum.TryParse("" + UnityEngine.Random.Range(-1, 2), out Type value);
         SetOreType(value);
@@ -20,7 +20,7 @@ public class Ore : MonoBehaviour
         _currentAmount = amount;
     }
 
-    public float HarvestOre(float mAmount)
+    public virtual float HarvestOre(float mAmount)
     {
         float amountToHarvest = Math.Min(mAmount, _currentAmount);
         _currentAmount -= amountToHarvest;

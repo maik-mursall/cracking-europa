@@ -2764,7 +2764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7113299293376996966, guid: 12522636e34602148a9fb5e95d0a25ed, type: 3}
       propertyPath: segmentDistance
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7113299293376996966, guid: 12522636e34602148a9fb5e95d0a25ed, type: 3}
       propertyPath: crackAngleChange
